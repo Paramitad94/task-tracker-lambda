@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  HelloLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: hello-lambda
+      Handler: index.handler
+      Runtime: nodejs20.x
+      CodeUri: .
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: Tasks
