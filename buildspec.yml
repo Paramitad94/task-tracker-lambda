@@ -1,0 +1,6 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - zip -r function.zip . -x "*.git*"
+      - aws lambda update-function-code --function-name hello-lambda --zip-file fileb://function.zip
